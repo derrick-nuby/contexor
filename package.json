@@ -1,6 +1,6 @@
 {
   "name": "contexor",
-  "version": "0.0.1",
+  "version": "0.0.2-canary.0",
   "description": "Contexor  is a lightweight, plug-and-play AI assistant widget that can be embedded into any website—regardless of the tech stack—to provide users with instant, context-aware answers. Website owners simply add a script or npm package, enter their own AI API key (e.g., OpenAI or Claude), and optionally define a system prompt. Contexta automatically gathers relevant content from the site (such as visible text, metadata, or documents) and uses it to give accurate, site-specific responses directly in the browser—no backend or server setup required. Designed for institutions, businesses, and content-rich websites, Contexta transforms static sites into interactive, intelligent guides in minutes.",
   "keywords": [
     "ai",
