@@ -36,3 +36,13 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# Drafts (singular and plural forms)
+draft/
+drafts/
+.draft/
+.drafts/
+*draft
+*drafts
+*.draft
+*.drafts
