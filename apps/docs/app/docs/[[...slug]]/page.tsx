@@ -7,11 +7,13 @@ import {
 } from 'fumadocs-ui/page';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
+import { LLMCopyButton, ViewOptions } from '@/components/page-actions';
 
 export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ slug?: string[]; }>;
 }) {
   const params = await props.params;
   const page = source.getPage(params.slug);
@@ -21,6 +23,13 @@ export default async function Page(props: {
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
+      <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+        <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+        <ViewOptions
+          markdownUrl={`${page.url}.mdx`}
+          githubUrl={`https://github.com/derrick-nuby/contexor/blob/develop/apps/docs/content/docs/${page.path}`}
+        />
+      </div>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
@@ -40,7 +49,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ slug?: string[]; }>;
 }): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);
