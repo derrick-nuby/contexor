@@ -1,28 +1,19 @@
 {
   "name": "contexor",
-  "version": "0.0.1-canary.1",
-  "description": "Contexor  is a lightweight, plug-and-play AI assistant widget that can be embedded into any website—regardless of the tech stack—to provide users with instant, context-aware answers. Website owners simply add a script or npm package, enter their own AI API key (e.g., OpenAI or Claude), and optionally define a system prompt. Contexta automatically gathers relevant content from the site (such as visible text, metadata, or documents) and uses it to give accurate, site-specific responses directly in the browser—no backend or server setup required. Designed for institutions, businesses, and content-rich websites, Contexta transforms static sites into interactive, intelligent guides in minutes.",
-  "keywords": [
-    "ai",
-    "assistant",
-    "chatbot",
-    "sdk",
-    "widget",
-    "context",
-    "agent"
-  ],
-  "homepage": "https://github.com/derrick-nuby/contexor#readme",
-  "bugs": {
-    "url": "https://github.com/derrick-nuby/contexor/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/derrick-nuby/contexor.git"
-  },
-  "author": "derrick-nuby",
-  "type": "commonjs",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "start": "turbo run start"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6",
+    "typescript": "5.9.2"
+  },
+  "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
+  "engines": {
+    "node": ">=18"
   }
 }
