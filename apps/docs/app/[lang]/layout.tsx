@@ -1,5 +1,5 @@
 import '@/app/global.css';
-import { Provider } from '../provider';
+import { Provider } from './provider';
 import { Inter } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Translations } from 'fumadocs-ui/i18n';
@@ -48,14 +48,8 @@ export default async function RootLayout({
   return (
     <html lang={lang} className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider
-          i18n={{
-            locale: lang,
-            locales,
-            translations: { fr }[lang],
-          }}
-        >
-          <Provider>
+        <RootProvider>
+          <Provider lang={lang}>
             {children}
           </Provider>
         </RootProvider>
