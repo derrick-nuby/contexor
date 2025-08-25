@@ -8,7 +8,7 @@ import {
   MessageCircleIcon,
 } from 'lucide-react';
 import { useCopyButton } from 'fumadocs-ui/utils/use-copy-button';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from '../ui/button';
 import {
   Popover,
   PopoverContent,

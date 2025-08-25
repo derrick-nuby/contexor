@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation';
 
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
-import { LLMCopyButton, ViewOptions } from '@/components/page-actions';
+import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[]; }>;
