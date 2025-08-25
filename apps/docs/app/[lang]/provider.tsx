@@ -4,14 +4,13 @@ import SearchDialog from "@/components/search";
 import type { ReactNode } from "react";
 import { Translations } from "fumadocs-ui/i18n";
 
-export function Provider({ children, lang }: { children: ReactNode, lang: string; }) {
+export function Provider({ children, lang }: { children: ReactNode; lang: string; }) {
   return (
     <RootProvider
       search={{
         SearchDialog,
         enabled: true,
       }}
-
       i18n={{
         locale: lang,
         locales: [
@@ -39,7 +38,6 @@ export function Provider({ children, lang }: { children: ReactNode, lang: string
           }
         } as Record<string, Partial<Translations>>
       }}
-
       theme={{
         defaultTheme: 'system',
         themes: ['light', 'dark', 'system'],

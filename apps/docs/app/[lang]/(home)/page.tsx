@@ -1,18 +1,35 @@
 import Link from 'next/link';
 
-export default function HomePage() {
+const translations = {
+  en: {
+    hello: 'Hello World',
+    openDocs: 'You can open',
+    andSee: 'and see the documentation.',
+    docs: '/docs',
+  },
+  fr: {
+    hello: 'Bonjour le monde',
+    openDocs: 'Vous pouvez ouvrir',
+    andSee: 'et voir la documentation.',
+    docs: '/docs',
+  },
+};
+
+export default function HomePage({ params }: { params: { lang: string; }; }) {
+  const lang = params?.lang === 'fr' ? 'fr' : 'en';
+  const t = translations[lang];
   return (
     <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
+      <h1 className="mb-4 text-2xl font-bold">{t.hello}</h1>
       <p className="text-fd-muted-foreground">
-        You can open{' '}
+        {t.openDocs}{' '}
         <Link
-          href="/docs"
+          href={`/${lang}/docs`}
           className="text-fd-foreground font-semibold underline"
         >
-          /docs
+          {t.docs}
         </Link>{' '}
-        and see the documentation.
+        {t.andSee}
       </p>
     </main>
   );
