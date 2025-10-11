@@ -1,7 +1,7 @@
 {
   "name": "contexor",
   "version": "0.0.1-canary.1",
-  "description": "Contexor  is a lightweight, plug-and-play AI assistant widget that can be embedded into any website—regardless of the tech stack—to provide users with instant, context-aware answers. Website owners simply add a script or npm package, enter their own AI API key (e.g., OpenAI or Claude), and optionally define a system prompt. Contexta automatically gathers relevant content from the site (such as visible text, metadata, or documents) and uses it to give accurate, site-specific responses directly in the browser—no backend or server setup required. Designed for institutions, businesses, and content-rich websites, Contexta transforms static sites into interactive, intelligent guides in minutes.",
+  "description": "Contexor is a lightweight, plug-and-play AI assistant widget that can be embedded into any website—regardless of the tech stack—to provide users with instant, context-aware answers. Website owners simply add a script or npm package, enter their own AI API key (e.g., OpenAI or Claude), and optionally define a system prompt. Contexta automatically gathers relevant content from the site (such as visible text, metadata, or documents) and uses it to give accurate, site-specific responses directly in the browser—no backend or server setup required. Designed for institutions, businesses, and content-rich websites, Contexta transforms static sites into interactive, intelligent guides in minutes.",
   "keywords": [
     "ai",
     "assistant",
@@ -20,9 +20,51 @@
     "url": "git+https://github.com/derrick-nuby/contexor.git"
   },
   "author": "derrick-nuby",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-scroll-area": "^1.2.2",
+    "@radix-ui/react-avatar": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.545.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.9.2"
   }
 }

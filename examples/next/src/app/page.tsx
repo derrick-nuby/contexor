@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ContextorDemo } from "./ContextorDemo";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
             This is the <strong>Contexor test environment</strong> for Phase 1 UI development.
           </li>
           <li className="tracking-[-.01em]">
-            The Contexor widget will appear here once implemented.
+            <strong>Click the button in the bottom-right corner</strong> to test the Contexor widget!
           </li>
         </ol>
 
@@ -98,6 +99,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+      {/* <ContextorDemo /> */}
     </div>
   );
 }
