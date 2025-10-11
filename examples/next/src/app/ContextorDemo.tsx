@@ -52,8 +52,8 @@ export function ContextorDemo() {
           ],
         },
         theme: {
-          primaryColor: "220 70% 50%",
-          borderRadius: "0.75rem",
+          // primaryColor: "220 70% 50%",
+          // borderRadius: "0.75rem",
         },
       }}
     />
