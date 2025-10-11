@@ -46,3 +46,7 @@ drafts/
 *drafts
 *.draft
 *.drafts
+
+# Custom
+
+instructions/
