@@ -31,7 +31,7 @@ export function ToggleButton({ isOpen, onClick, config }: ToggleButtonProps) {
       )}
       style={{
         ...positionStyles,
-        zIndex: config.zIndex,
+        zIndex: config.zIndex + 1,
       }}
       aria-label={isOpen ? "Close chat" : "Open chat"}
       aria-expanded={isOpen}

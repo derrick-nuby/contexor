@@ -1,56 +1,106 @@
 @import "tailwindcss";
 
-/* Scope all CSS variables to the contexor widget container */
-/* Only apply default theme when NOT inheriting from host */
-.contexor-widget:not(.contexor-widget-inherit-theme) {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
+/*
+ * Contexor Widget Styles
+ * All styles are scoped to .contexor-widget to prevent pollution of host app
+ * No global CSS variables or styles that affect the host application
+ */
+
+/* Widget container - isolates all styles */
+.contexor-widget {
+  /* Only apply default theme when NOT inheriting from host */
+  &:not(.contexor-widget-inherit-theme) {
+    /* Light theme colors */
+    --contexor-background: 0 0% 100%;
+    --contexor-foreground: 240 10% 3.9%;
+    --contexor-card: 0 0% 100%;
+    --contexor-card-foreground: 240 10% 3.9%;
+    --contexor-popover: 0 0% 100%;
+    --contexor-popover-foreground: 240 10% 3.9%;
+    --contexor-primary: 240 5.9% 10%;
+    --contexor-primary-foreground: 0 0% 98%;
+    --contexor-secondary: 240 4.8% 95.9%;
+    --contexor-secondary-foreground: 240 5.9% 10%;
+    --contexor-muted: 240 4.8% 95.9%;
+    --contexor-muted-foreground: 240 3.8% 46.1%;
+    --contexor-accent: 240 4.8% 95.9%;
+    --contexor-accent-foreground: 240 5.9% 10%;
+    --contexor-destructive: 0 84.2% 60.2%;
+    --contexor-destructive-foreground: 0 0% 98%;
+    --contexor-border: 240 5.9% 90%;
+    --contexor-input: 240 5.9% 90%;
+    --contexor-ring: 240 5.9% 10%;
+    --contexor-radius: 0.5rem;
+  }
+
+  /* Dark theme */
+  &:not(.contexor-widget-inherit-theme).dark {
+    --contexor-background: 240 10% 3.9%;
+    --contexor-foreground: 0 0% 98%;
+    --contexor-card: 240 10% 3.9%;
+    --contexor-card-foreground: 0 0% 98%;
+    --contexor-popover: 240 10% 3.9%;
+    --contexor-popover-foreground: 0 0% 98%;
+    --contexor-primary: 0 0% 98%;
+    --contexor-primary-foreground: 240 5.9% 10%;
+    --contexor-secondary: 240 3.7% 15.9%;
+    --contexor-secondary-foreground: 0 0% 98%;
+    --contexor-muted: 240 3.7% 15.9%;
+    --contexor-muted-foreground: 240 5% 64.9%;
+    --contexor-accent: 240 3.7% 15.9%;
+    --contexor-accent-foreground: 0 0% 98%;
+    --contexor-destructive: 0 62.8% 30.6%;
+    --contexor-destructive-foreground: 0 0% 98%;
+    --contexor-border: 240 3.7% 15.9%;
+    --contexor-input: 240 3.7% 15.9%;
+    --contexor-ring: 240 4.9% 83.9%;
+  }
+
+  /* When inheriting host theme, use CSS variables from :root */
+  &.contexor-widget-inherit-theme {
+    --contexor-background: var(--background, 0 0% 100%);
+    --contexor-foreground: var(--foreground, 240 10% 3.9%);
+    --contexor-card: var(--card, 0 0% 100%);
+    --contexor-card-foreground: var(--card-foreground, 240 10% 3.9%);
+    --contexor-popover: var(--popover, 0 0% 100%);
+    --contexor-popover-foreground: var(--popover-foreground, 240 10% 3.9%);
+    --contexor-primary: var(--primary, 240 5.9% 10%);
+    --contexor-primary-foreground: var(--primary-foreground, 0 0% 98%);
+    --contexor-secondary: var(--secondary, 240 4.8% 95.9%);
+    --contexor-secondary-foreground: var(--secondary-foreground, 240 5.9% 10%);
+    --contexor-muted: var(--muted, 240 4.8% 95.9%);
+    --contexor-muted-foreground: var(--muted-foreground, 240 3.8% 46.1%);
+    --contexor-accent: var(--accent, 240 4.8% 95.9%);
+    --contexor-accent-foreground: var(--accent-foreground, 240 5.9% 10%);
+    --contexor-destructive: var(--destructive, 0 84.2% 60.2%);
+    --contexor-destructive-foreground: var(--destructive-foreground, 0 0% 98%);
+    --contexor-border: var(--border, 240 5.9% 90%);
+    --contexor-input: var(--input, 240 5.9% 90%);
+    --contexor-ring: var(--ring, 240 5.9% 10%);
+    --contexor-radius: var(--radius, 0.5rem);
+  }
 }
 
-.contexor-widget:not(.contexor-widget-inherit-theme).dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
-}
-
-/* When inheriting host theme, the widget will use CSS variables from :root or parent elements */
-/* This allows seamless integration with the host application's existing theme */
-
-/* Scope border color only to widget elements */
-.contexor-widget * {
-  border-color: hsl(var(--border));
+/* Remap to standard variable names ONLY within widget context */
+.contexor-widget {
+  --background: var(--contexor-background);
+  --foreground: var(--contexor-foreground);
+  --card: var(--contexor-card);
+  --card-foreground: var(--contexor-card-foreground);
+  --popover: var(--contexor-popover);
+  --popover-foreground: var(--contexor-popover-foreground);
+  --primary: var(--contexor-primary);
+  --primary-foreground: var(--contexor-primary-foreground);
+  --secondary: var(--contexor-secondary);
+  --secondary-foreground: var(--contexor-secondary-foreground);
+  --muted: var(--contexor-muted);
+  --muted-foreground: var(--contexor-muted-foreground);
+  --accent: var(--contexor-accent);
+  --accent-foreground: var(--contexor-accent-foreground);
+  --destructive: var(--contexor-destructive);
+  --destructive-foreground: var(--contexor-destructive-foreground);
+  --border: var(--contexor-border);
+  --input: var(--contexor-input);
+  --ring: var(--contexor-ring);
+  --radius: var(--contexor-radius);
 }

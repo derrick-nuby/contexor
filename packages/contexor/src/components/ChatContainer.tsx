@@ -39,7 +39,7 @@ export function ChatContainer({
           className="fixed z-50 pointer-events-none"
           style={{
             ...positionStyles,
-            zIndex: config.zIndex + 1,
+            zIndex: config.zIndex,
           }}
         >
           <div
