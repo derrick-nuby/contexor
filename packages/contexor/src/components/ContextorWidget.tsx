@@ -59,9 +59,13 @@ export function ContextorWidget({
 
   const hasMessages = messages.length > 0;
 
+  const widgetClassName = config.theme.inheritHostTheme
+    ? "contexor-widget contexor-widget-inherit-theme"
+    : "contexor-widget";
+
   return (
     <div
-      className="contexor-widget"
+      className={widgetClassName}
       style={themeVariables as React.CSSProperties}
     >
       <ToggleButton

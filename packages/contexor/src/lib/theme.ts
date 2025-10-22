@@ -10,6 +10,7 @@ export const defaultConfig: Required<ContextorConfig> = {
     y: "20px",
   },
   theme: {
+    inheritHostTheme: false,
     primaryColor: "240 5.9% 10%",
     primaryForeground: "0 0% 98%",
     backgroundColor: "0 0% 100%",
@@ -73,6 +74,7 @@ export function mergeConfig(
 
 /**
  * Generates CSS variables from theme configuration
+ * If inheritHostTheme is true, only custom overrides are applied
  */
 export function generateThemeVariables(
   theme: ContextorConfig["theme"]
@@ -81,20 +83,42 @@ export function generateThemeVariables(
 
   const variables: Record<string, string> = {};
 
-  if (theme.primaryColor) {
-    variables["--primary"] = theme.primaryColor;
-  }
-  if (theme.primaryForeground) {
-    variables["--primary-foreground"] = theme.primaryForeground;
-  }
-  if (theme.backgroundColor) {
-    variables["--background"] = theme.backgroundColor;
-  }
-  if (theme.foregroundColor) {
-    variables["--foreground"] = theme.foregroundColor;
-  }
-  if (theme.borderRadius) {
-    variables["--radius"] = theme.borderRadius;
+  // If inheriting host theme, only apply explicit custom values
+  // Otherwise, apply all theme values
+  if (!theme.inheritHostTheme) {
+    if (theme.primaryColor) {
+      variables["--primary"] = theme.primaryColor;
+    }
+    if (theme.primaryForeground) {
+      variables["--primary-foreground"] = theme.primaryForeground;
+    }
+    if (theme.backgroundColor) {
+      variables["--background"] = theme.backgroundColor;
+    }
+    if (theme.foregroundColor) {
+      variables["--foreground"] = theme.foregroundColor;
+    }
+    if (theme.borderRadius) {
+      variables["--radius"] = theme.borderRadius;
+    }
+  } else {
+    // When inheriting, only apply custom overrides that differ from defaults
+    // This allows the widget to use host's CSS variables but with optional overrides
+    if (theme.primaryColor && theme.primaryColor !== defaultConfig.theme.primaryColor) {
+      variables["--primary"] = theme.primaryColor;
+    }
+    if (theme.primaryForeground && theme.primaryForeground !== defaultConfig.theme.primaryForeground) {
+      variables["--primary-foreground"] = theme.primaryForeground;
+    }
+    if (theme.backgroundColor && theme.backgroundColor !== defaultConfig.theme.backgroundColor) {
+      variables["--background"] = theme.backgroundColor;
+    }
+    if (theme.foregroundColor && theme.foregroundColor !== defaultConfig.theme.foregroundColor) {
+      variables["--foreground"] = theme.foregroundColor;
+    }
+    if (theme.borderRadius && theme.borderRadius !== defaultConfig.theme.borderRadius) {
+      variables["--radius"] = theme.borderRadius;
+    }
   }
 
   return variables;

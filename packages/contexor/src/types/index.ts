@@ -11,6 +11,8 @@ export type WidgetPosition =
  * Theme configuration for the widget
  */
 export interface ContextorTheme {
+  /** Whether to inherit CSS variables from the host application (default: false) */
+  inheritHostTheme?: boolean;
   /** Primary color in HSL format (e.g., "240 5.9% 10%") */
   primaryColor?: string;
   /** Primary foreground color in HSL format */

@@ -52,6 +52,7 @@ export function ContextorDemo() {
           ],
         },
         theme: {
+          inheritHostTheme: true,
           // primaryColor: "220 70% 50%",
           // borderRadius: "0.75rem",
         },

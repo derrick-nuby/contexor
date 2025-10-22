@@ -24,7 +24,8 @@ export function ToggleButton({ isOpen, onClick, config }: ToggleButtonProps) {
       type="button"
       onClick={onClick}
       className={cn(
-        "group flex items-center justify-center rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+        "contexor-toggle-button",
+        "fixed group flex items-center justify-center rounded-full shadow-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
         "h-14 w-14 bg-primary text-primary-foreground hover:bg-primary/90",
         config.className
       )}

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root {
+/* Scope all CSS variables to the contexor widget container */
+/* Only apply default theme when NOT inheriting from host */
+.contexor-widget:not(.contexor-widget-inherit-theme) {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
@@ -23,7 +25,7 @@
   --radius: 0.5rem;
 }
 
-.dark {
+.contexor-widget:not(.contexor-widget-inherit-theme).dark {
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
   --card: 240 10% 3.9%;
@@ -45,11 +47,10 @@
   --ring: 240 4.9% 83.9%;
 }
 
-* {
-  border-color: hsl(var(--border));
-}
+/* When inheriting host theme, the widget will use CSS variables from :root or parent elements */
+/* This allows seamless integration with the host application's existing theme */
 
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+/* Scope border color only to widget elements */
+.contexor-widget * {
+  border-color: hsl(var(--border));
 }

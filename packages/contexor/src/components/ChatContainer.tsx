@@ -31,11 +31,12 @@ export function ChatContainer({
   );
 
   return (
-    <Dialog open={isOpen} onOpenChange={onOpenChange}>
+    <Dialog open={isOpen} onOpenChange={onOpenChange} modal={false}>
       <DialogPortal>
-        <DialogOverlay className="bg-black/40 backdrop-blur-sm" />
+        {/* Subtle backdrop that doesn't block interaction with page */}
+        <DialogOverlay className="bg-transparent pointer-events-none" />
         <div
-          className="fixed z-50"
+          className="fixed z-50 pointer-events-none"
           style={{
             ...positionStyles,
             zIndex: config.zIndex + 1,
@@ -43,6 +44,7 @@ export function ChatContainer({
         >
           <div
             className={cn(
+              "pointer-events-auto",
               "flex flex-col overflow-hidden rounded-lg border bg-background shadow-2xl",
               "w-[380px] h-[600px] max-h-[80vh]",
               "sm:w-[400px] sm:h-[650px]",
@@ -52,7 +54,7 @@ export function ChatContainer({
               "data-[state=closed]:slide-out-to-bottom-8 data-[state=open]:slide-in-from-bottom-8"
             )}
             role="dialog"
-            aria-modal="true"
+            aria-modal="false"
             aria-labelledby="chat-dialog-title"
           >
             {children}
